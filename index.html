@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gong Pool</title>
+<meta name="description" content="A still, dark pool that ripples with every gong in the music.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23e9b872' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='%23e9b872' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e9b872'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="pool"></canvas>
+
+<main id="welcome">
+  <h1>Gong Pool</h1>
+  <p>A still pool that ripples with every gong in the music.<br>Each gong finds its own place and colour.</p>
+  <div class="choices">
+    <button data-action="audius" class="primary">Gong music from Audius</button>
+    <button data-action="file">Play a file</button>
+    <button data-action="mic">Listen through the microphone</button>
+    <button data-action="demo">Demo gongs</button>
+  </div>
+  <p class="hint">Press <kbd>F</kbd> for full screen. The controls fade away when you leave the mouse still.</p>
+</main>
+
+<div id="nowPlaying" aria-live="polite"></div>
+
+<nav id="bar" aria-label="Controls">
+  <button id="playBtn" title="Play / pause (Space)" aria-label="Play or pause">
+    <svg viewBox="0 0 24 24" class="icon-play"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+    <svg viewBox="0 0 24 24" class="icon-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+  </button>
+  <button id="nextBtn" title="Next track (N)" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5.5v13l9-6.5zM16 5h2.5v14H16z"/></svg></button>
+  <span class="sep"></span>
+  <button data-action="audius" title="Find gong music on Audius">Audius</button>
+  <button data-action="file" title="Play audio files">File</button>
+  <button data-action="mic" title="Listen through the microphone">Mic</button>
+  <button data-action="demo" title="Demo gongs (D)">Demo</button>
+  <span class="sep"></span>
+  <button id="settingsBtn" title="Settings" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></button>
+  <button id="fullBtn" title="Full screen (F)" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+</nav>
+
+<section id="settings" class="panel" hidden>
+  <label>Sensitivity <span class="note">how easily a strike is noticed</span>
+    <input id="sens" type="range" min="0.4" max="2.5" step="0.05" value="1"></label>
+  <label>Gong variety <span class="note">how readily a new gong is recognised</span>
+    <input id="variety" type="range" min="0" max="1" step="0.05" value="0.5"></label>
+  <label>Brightness
+    <input id="bright" type="range" min="0.3" max="2" step="0.05" value="1"></label>
+  <label>Detail <span class="note">lower if the picture stutters</span>
+    <input id="quality" type="range" min="0.35" max="1" step="0.05" value="0.75"></label>
+  <button id="forgetBtn" class="quiet">Forget the gongs heard so far</button>
+</section>
+
+<aside id="sheet" class="panel" hidden aria-label="Audius">
+  <header>
+    <h2>Gong music on Audius</h2>
+    <button id="sheetClose" aria-label="Close">×</button>
+  </header>
+  <form id="searchForm">
+    <input id="query" type="search" placeholder="Search Audius" autocomplete="off" value="gong bath">
+  </form>
+  <div class="chips">
+    <button data-q="gong bath">gong bath</button>
+    <button data-q="gong">gong</button>
+    <button data-q="gong meditation">gong meditation</button>
+    <button data-q="sound bath">sound bath</button>
+    <button data-q="singing bowls">singing bowls</button>
+    <button data-q="tam tam">tam tam</button>
+  </div>
+  <p id="listLabel" class="note"></p>
+  <ul id="list"></ul>
+  <p class="note small">Music streams from <a href="https://audius.co" target="_blank" rel="noopener">Audius</a>, an open music platform. When a track ends the next one in the list plays.</p>
+</aside>
+
+<div id="toast" role="status"></div>
+<input id="fileInput" type="file" accept="audio/*,video/*" multiple hidden>
+<audio id="player" preload="auto"></audio>
+
+<script src="js/audius.js"></script>
+<script src="js/listener.js"></script>
+<script src="js/pool.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
