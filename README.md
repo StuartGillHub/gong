@@ -2,9 +2,9 @@
 
 A still, dark pool that ripples with every gong in the music. Made for projecting on a wall.
 
-- Each gong strike sends slow rings of light across the water from the gong that was hit.
-- While a gong keeps ringing, it keeps sending out softer rings and glows faintly beneath the surface.
-- Different gongs are recognised by their sound. The deepest rests in the centre and the others find their own place around it (left, right, above, below…). Each has its own colour: warm amber for the deepest, through rose and lavender to teal and moonlight for the highest.
+- Each gong strike appears somewhere new on the water: a faint glow gathers there, as if a gong rested just beneath the surface, and a few fine rings of light drift slowly outward, easing to a near stop as they fade.
+- While a gong keeps ringing, it sends out a single faint ring now and then, and its glow lingers.
+- Different gongs are recognised by their sound and each has its own colour, from pale amber for the deepest through blush and lilac to pale teal and moonlight for the highest. Deep gongs tend to sound nearer the middle; higher ones wander further out.
 
 ## Sound sources
 

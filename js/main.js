@@ -17,7 +17,7 @@
   }
 
   /* ---------- settings (remembered on this device) ---------- */
-  const settings = { sens: 1, variety: 0.5, bright: 1, quality: 0.75 };
+  const settings = { sens: 1, variety: 0.5, bright: 1, quality: 1 };
   try { Object.assign(settings, JSON.parse(localStorage.getItem('gongpool') || '{}')); } catch (e) { /* none saved */ }
   function saveSettings() {
     try { localStorage.setItem('gongpool', JSON.stringify(settings)); } catch (e) { /* private mode */ }
